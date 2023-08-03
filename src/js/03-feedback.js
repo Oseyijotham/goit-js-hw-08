@@ -36,10 +36,14 @@ if (userData) {
 
 form.addEventListener("submit", event => {
     event.preventDefault();
+    if (emailFeild.value !== "" && messageFeild.value !== "") {
+        
+        console.log(feildsObject);
+        localStorage.removeItem("feedback-form-state");
+    }
+    else {
+        alert("No Feild Should be Empty")
+        return
+    }
     event.target.reset();
-    console.log(feildsObject);
-    localStorage.removeItem("feedback-form-state");
-    
-    
-    
-})
+    })

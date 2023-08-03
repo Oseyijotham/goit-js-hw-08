@@ -10,7 +10,7 @@ import throttle from 'lodash.throttle';
 player.on("timeupdate", throttle(function (data) { localStorage.setItem("videoplayer-current-time", data.seconds) }, 1000))
 
 
-    player.on('play', function() {
+    
         //console.log('played the video!');
         //console.log(localStorage.getItem("videoplayer-current-time"));
         player.setCurrentTime(localStorage.getItem("videoplayer-current-time")).then(function (seconds) {
@@ -18,7 +18,7 @@ player.on("timeupdate", throttle(function (data) { localStorage.setItem("videopl
         }).catch(function (error) {
             console.error('Error setting current time:', error);
         });
-    });
+    
 
     player.getVideoTitle().then(function(title) {
         console.log('title:', title);
