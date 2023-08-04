@@ -10,8 +10,8 @@ const userData = JSON.parse(localStorage.getItem("feedback-form-state"));
 
 emailFeild.addEventListener("input", throttle(event => {
      feildsObject = {
-         email: event.target.value,
-         message: messageFeild.value
+         email: event.target.value.trim(),
+         message: messageFeild.value.trim()
     }
     localStorage.setItem("feedback-form-state", JSON.stringify(feildsObject))
 }, 500));
@@ -20,8 +20,9 @@ emailFeild.addEventListener("input", throttle(event => {
 
 messageFeild.addEventListener("input", throttle(event => {
     feildsObject = { 
-        ...feildsObject, 
-        message: event.target.value
+        //...feildsObject,
+        email: emailFeild.value.trim(),
+        message: event.target.value.trim()
     }
     localStorage.setItem("feedback-form-state", JSON.stringify(feildsObject))
 }, 500));
@@ -36,7 +37,7 @@ if (userData) {
 
 form.addEventListener("submit", event => {
     event.preventDefault();
-    if (emailFeild.value !== "" && messageFeild.value !== "") {
+    if (emailFeild.value.trim() !== "" && messageFeild.value.trim() !== "") {
         
         console.log(feildsObject);
         localStorage.removeItem("feedback-form-state");
