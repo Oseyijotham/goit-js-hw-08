@@ -37,7 +37,7 @@ if (userData) {
 
 form.addEventListener("submit", event => {
     event.preventDefault();
-    if (emailFeild.value !== "" && messageFeild.value !== "") {
+    if (emailFeild.value.trim() !== "" && messageFeild.value.trim() !== "") {
         
         console.log(feildsObject);
         localStorage.removeItem("feedback-form-state");
